@@ -1,15 +1,22 @@
-<form (submit)="addTask(); $event.preventDefault();">
-  <input 
-    type="text"
+<form (submit)="addTask(); $event.preventDefault();" class="form">
+  <mat-form-field appearance="fill" subscriptSizing='dynamic'>
+    <mat-label>New Task: </mat-label>
+  <input
+    matInput
     [(ngModel)]="newTaskTitle"
     name="task"
-    placeholder="New task"
+    placeholder="Enter task name"
   />
-  <button type="submit">Add</button>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Add</button>
 </form>
 
 <ul>
-  <li *ngFor="let task of tasks">
-    {{ task.title }}
-  </li>
+  <app-task-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (toggle)="toggleDone($event)"
+      (delete)="delete($event)"
+      (edit)="editTask($event)"
+  ></app-task-item>
 </ul>

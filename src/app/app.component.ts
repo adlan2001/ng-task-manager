@@ -10,4 +10,10 @@ import { HomeComponent } from './pages/home/home.component';
 })
 export class AppComponent {
   title = 'ng-task-manager';
+  darkMode = false;
+
+  toggleTheme() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark-theme', this.darkMode)
+  }
 }

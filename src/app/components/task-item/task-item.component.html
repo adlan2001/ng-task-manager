@@ -1,1 +1,31 @@
-<p>task-item works!</p>
+<mat-card class="gap">
+  <mat-card-content class="task-item">
+    <mat-checkbox
+      [checked]="task.done"
+      (change)="onToggle()"
+      [disabled]="editing"
+    ></mat-checkbox>
+
+    <div *ngIf="!editing" (click)="startEditing()" class="title">
+      <span [ngClass]="{ done: task.done }">{{ task.title }}</span>
+    </div>
+    
+    <div *ngIf="editing" class="edit-row">
+      <input [(ngModel)]="editedTitle" (keydown.enter)="saveEdit()" />
+      <button mat-icon-button (click)="saveEdit()" title="Save">
+        <mat-icon>check</mat-icon>
+      </button>
+      <button mat-icon-button (click)="cancelEdit()" title="Cancel">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    
+    <a [routerLink]="['/tasks', task.id]" title="Details">
+      <mat-icon>open_in_new</mat-icon>
+    </a>
+
+    <button mat-icon-button color="warn" (click)="onDelete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-content>
+</mat-card>
