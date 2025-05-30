@@ -1,0 +1,22 @@
+<form (submit)="addTask(); $event.preventDefault();" class="form">
+  <mat-form-field appearance="fill" subscriptSizing='dynamic'>
+    <mat-label>New Task: </mat-label>
+  <input
+    matInput
+    [(ngModel)]="newTaskTitle"
+    name="task"
+    placeholder="Enter task name"
+  />
+  </mat-form-field>
+  <button mat-raised-button color="primary">Add</button>
+</form>
+
+<ul>
+  <app-task-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (toggle)="toggleDone($event)"
+      (delete)="delete($event)"
+      (edit)="editTask($event)"
+  ></app-task-item>
+</ul>
