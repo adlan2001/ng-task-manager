@@ -9,7 +9,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-task-item',
-  imports: [CommonModule, RouterModule, MatCardModule, MatIconModule, MatCheckboxModule, FormsModule]
+  imports: [CommonModule, RouterModule, MatCardModule, MatIconModule, MatCheckboxModule, FormsModule],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.scss'
 })
