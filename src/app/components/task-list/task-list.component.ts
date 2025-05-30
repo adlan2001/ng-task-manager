@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-task-list',
   imports: [CommonModule, FormsModule, TaskItemComponent, MatFormFieldModule, MatInputModule, MatButtonModule],
+
   templateUrl: './task-list.component.html',
   styleUrl: './task-list.component.scss',
   standalone: true,
